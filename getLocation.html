@@ -20,7 +20,7 @@
   }
 
   function errorCallback(error) {
-    err.textContent = error.message
+    err.textContent = error.message;
   }
   
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true, timeout:1000, maximumAge:0});
