@@ -11,19 +11,19 @@
   if (!navigator.geolocation) {
     alert("このブラウザは、Geolocation APIがサポートされていません");
   }
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true, timeout:1000, maximumAge:0});
   
-function successCallback(position) {
+  function successCallback(position) {
     let coords = position.coords;
     lat.textContent = coords.latitude;
     lng.textContent = coords.longitude;
     map.setAttribute('href', `https://www.google.co.jp/maps/@${coords.latitude},${coords.longitude},15z`);
-}
+  }
 
-function errorCallback(error) {
-  err.textContent = error.message
-}
+  function errorCallback(error) {
+    err.textContent = error.message
+  }
+  
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true, timeout:1000, maximumAge:0});
 </script>
 </head>
 <body>
