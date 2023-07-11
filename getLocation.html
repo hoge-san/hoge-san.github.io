@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test getLocationAPI</title>
+<script type="text/javascript">
+  let lat = document.getElementById('lat');
+  let lng = document.getElementById('lng');
+  let map = document.getElementById('map');
+  let err = document.getElementById('err');
+  if (!navigator.geolocation) {
+    alert("このブラウザは、Geolocation APIがサポートされていません");
+  }
+
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true, timeout:1000, maximumAge:0});
+  
+function successCallback(position) {
+    let coords = position.coords;
+    lat.textContent = coords.latitude;
+    lng.textContent = coords.longitude;
+    map.setAttribute('href', `https://www.google.co.jp/maps/@${coords.latitude},${coords.longitude},15z`);
+}
+
+function errorCallback(error) {
+  err.textContent = error.message
+}
+</script>
+</head>
+<body>
+  <div id="app">
+    <dl>
+        <dt>緯度</dt>
+        <dd id="lat">-----</dd>
+    </dl>
+    <dl>
+        <dt>経度</dt>
+        <dd id="lng">-----</dd>
+    </dl>
+    <dl>
+      <dt>エラー</dt>
+      <dd id="err">-----</dd>
+    </dl>
+
+    <a id="map" href="" target="_blank">Google Map</a>
+</div>
+</body>
+</html>
