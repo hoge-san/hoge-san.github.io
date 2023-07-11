@@ -4,15 +4,14 @@
 <meta charset="utf-8">
 <title>Test getLocationAPI</title>
 <script type="text/javascript">
-  let lat = document.getElementById('lat');
-  let lng = document.getElementById('lng');
-  let map = document.getElementById('map');
-  let err = document.getElementById('err');
   if (!navigator.geolocation) {
     alert("このブラウザは、Geolocation APIがサポートされていません");
   }
   
   function successCallback(position) {
+    let lat = document.getElementById('lat');
+    let lng = document.getElementById('lng');
+    let map = document.getElementById('map');
     let coords = position.coords;
     lat.textContent = coords.latitude;
     lng.textContent = coords.longitude;
@@ -20,6 +19,7 @@
   }
 
   function errorCallback(error) {
+    let err = document.getElementById('err');
     err.textContent = error.message;
   }
   
