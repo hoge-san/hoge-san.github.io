@@ -23,7 +23,7 @@
     err.textContent = error.message;
   }
   
-  navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true, timeout:1000, maximumAge:0});
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{enableHighAccuracy:true, timeout:5000, maximumAge:0});
 </script>
 </head>
 <body>
